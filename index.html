@@ -137,18 +137,18 @@
 
     <script>
         let password = "";
-        const correctPassword = "1234"; // Ganti dengan password yang diinginkan
+        const correctPassword = "04062007"; // Ganti dengan password yang diinginkan
         const passwordInput = document.getElementById("passwordInput");
         const warningText = document.getElementById("warningText");
         const loadingScreen = document.getElementById("loadingScreen");
         const loadingText = document.getElementById("loadingText");
 
         function enterNumber(num) {
-            if (password.length < 4) { // Maksimal 4 digit
+            if (password.length < 8) { // Maksimal 4 digit
                 password += num;
                 passwordInput.value = "*".repeat(password.length);
             }
-            if (password.length === 4) {
+            if (password.length === 8) {
                 checkPassword();
             }
         }
