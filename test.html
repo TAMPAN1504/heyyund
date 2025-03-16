@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slick Center Mode Carousel (Responsive)</title>
+
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Slick JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .carousel-container {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+        }
+
+       
+        .your-class div{
+            height: 50vh;
+        }
+
+        .your-class img {
+            width: 120px;
+            height: 180px;
+            margin: 20px;
+            margin-top: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0.5; /* Default opacity untuk gambar non-aktif */
+        }
+
+        /* Efek untuk gambar aktif (tengah) */
+        .slick-center img {
+            transform: scale(2);
+            opacity: 1;
+        }
+
+        .slick-prev, .slick-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            z-index: 10;
+        }
+
+        .slick-prev:hover, .slick-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Responsive untuk mobile */
+        @media (max-width: 768px) {
+            .carousel-container {
+                width: 90%;
+            }
+            .your-class img {
+                width: 180px;
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-container {
+                width: 100%;
+            }
+            .your-class img {
+                width: 80px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel-container">
+    <div class="your-class">
+        <div><img src="assets/image/Gambar WhatsApp 2025-03-02 pukul 20.32.44_324c7e3d.jpg" alt=""></div>
+        <div><img src="assets/image/Gambar WhatsApp 2025-03-02 pukul 20.40.30_d8d27f13.jpg" alt=""></div>
+        <div><img src="assets/image/Gambar WhatsApp 2025-03-02 pukul 20.56.10_d157fc76.jpg" alt=""></div>
+        <div><img src="assets/image/Gambar WhatsApp 2025-03-16 pukul 12.51.52_689cfcbf.jpg" alt=""></div>
+        <div><img src="assets/image/Screenshot 2025-03-16 125029.png" alt=""></div>
+        <div><img src="assets/image/Screenshot 2025-03-16 134628.png" alt=""></div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $('.your-class').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev">❮</button>',
+        nextArrow: '<button type="button" class="slick-next">❯</button>',
+        responsive: [
+            {
+                breakpoint: 768, // Tablet
+                settings: {
+                    slidesToShow: 3,
+                    centerPadding: '40px'
+                }
+            },
+            {
+                breakpoint: 480, // Mobile
+                settings: {
+                    slidesToShow: 3,
+                    centerPadding: '20px'
+                }
+            }
+        ]
+    });
+});
+</script>
+
+</body>
+</html>
