@@ -1,0 +1,32 @@
+:root{
+    --main-color: #ffadda;
+    --demo-color: #e6e6fa;
+    --sec-color: #ffc4e4;
+    --dark-color: #9b4373;
+}
+
+ html{
+  scroll-behavior: smooth;
+} 
+
+@font-face {
+    font-family: Reenie Beanie;
+    src: url(assets/font/0b30a44b5eb1a594-s.p.woff2) format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+    align-items: center;
+}
