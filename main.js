@@ -1,11 +1,11 @@
-
+//Function Gallery Image
 $(document).ready(function(){
     $('.your-class').slick({
         centerMode: true,
         centerPadding: '60px',
         slidesToShow: 3,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 2000,
         dots: true,
         arrows: false,
         responsive: [
@@ -33,3 +33,20 @@ $(document).ready(function(){
         $('.your-class').slick('slickNext');
     });
 });
+
+// Paper Message Function
+
+document.querySelector(".readmeItem").addEventListener("click", () =>{
+    document.querySelector("#paperSfx").load();
+    document.querySelector("#paperSfx").play();
+    document.querySelector(".readmeMsg").style.display = "flex";
+});
+
+// fungsi ketika paper diklik di luar area gambar;
+document.querySelector(".readmeMsg").addEventListener("click", () =>{
+    if (event.target !== document.querySelector(".paper-bg")) {
+        document.querySelector("#paperSfx").load();
+        document.querySelector("#paperSfx").play();
+        document.querySelector(".readmeMsg").style.display = "none";
+    }
+    });

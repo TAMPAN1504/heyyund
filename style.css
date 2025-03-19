@@ -29,7 +29,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow-x: hidden;
 }
 
 header{
@@ -245,6 +244,21 @@ nav .logo a{
     background-size: cover;
     background-position: center;
 }
+
+.gallery .title{
+    background-color: white;
+    color: var(--dark-color);
+    margin-top: 1cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    transform: translateX(15%);
+    border-radius: 20px;
+    padding: 0.2cm;
+    border: 2px solid var(--main-color);
+    white-space: nowrap;
+}
 .carousel-container {
     width: 80%;
     max-width: 600px;
@@ -325,4 +339,175 @@ nav .logo a{
 
 .carousel-buttons button:hover {
     background-color: #555;
+}
+
+
+/* MUSIC FAV SECTION */
+.music-fav{
+    background-image: url(assets/image/_3.jpg);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2cm;
+}
+.music-box{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    background: linear-gradient(to bottom, rgba(248, 130, 191, 1), rgba(255, 255, 255, 0.729));
+    border-radius: 20px;
+    width: 90vw;
+    z-index: 100;
+    font-size: 14px;
+    font-family: 'Gloria Hallelujah';
+    font-weight: 800;
+    color: var(--dark-color);
+}
+.music-box .title{
+    display: flex;
+    align-items: center;
+    width: 350px;
+    justify-content: center;
+}
+.music-box .title img{
+    width: 90px;
+}
+
+.music-box .gallery{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.photo img{
+    width: 150px;
+    aspect-ratio: 6/4;
+    object-position: 50% 10%;
+    object-fit: cover;
+    filter: grayscale(1);
+    border-radius: 8px;
+    transition: transform 0.3s, filter 0.3s;
+}
+.photo img:hover{
+    transform: scale(1.10);
+    filter: grayscale(0);
+}
+
+
+/* MUSIC LIGHTBOX */
+.lightbox{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, rgba(245, 40, 145, 1), rgba(255, 255, 255, 0.5));
+    justify-content: center;
+    display: none;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    flex-direction: column;
+    top: 0;
+    color: white;
+    gap: 20px;
+    font-size: 2rem;
+    left: 0;
+}
+.lightbox img{
+    width: 300px;
+    aspect-ratio: 5/5;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.lightbox .judul {
+    width: 75%;
+    line-height: 35px;
+}
+#progress{
+    -webkit-appearance: none;
+    width: 100% ;
+    height: 4px;
+    background-color: rgba(226, 226, 226, 0.611);
+}
+#progress::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 100px;
+}
+
+.controls{
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
+}
+.controls .play{
+    color: black;
+    background-color: white;
+    border-radius: 100px;
+    width: 40px;
+    padding: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+}
+
+/* Readme */
+.readme{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 90%;
+
+}
+
+.readme img{
+    width: 90px;
+}
+
+.readme .readmeItem{
+    width: 100%;
+    font-size: 0.6rem;
+    background-color: var(--main-color);
+    padding: 3px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.readmeMsg{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.readmeMsg .paper-bg{
+    background-image: url(assets/image/paper-texture.png);
+    height: 50%;
+    width: 80%;
+    position: fixed;
+    background-size: cover;
+    color: var(--dark-color);
+    padding: 10px;
+    text-align: start;
+    border-radius: 5px;
+}
+
+.readmeMsg .paper-bg p{
+    font-family: Reenie Beanie, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+
 }
