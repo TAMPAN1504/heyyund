@@ -344,7 +344,7 @@ nav .logo a{
 
 /* MUSIC FAV SECTION */
 .music-fav{
-    background-image: url(assets/image/_3.jpg);
+    background-image: url(assets/image/music-fav-bg.jpg);
     width: 100vw;
     display: flex;
     justify-content: center;
