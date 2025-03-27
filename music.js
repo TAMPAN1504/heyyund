@@ -1,13 +1,13 @@
 //Function Musik
 const dataLagu = [
-    { title: "Aku Milikmu", artis:"Dewa 19", src: "assets/audio/spotifydown.com - Aku Milikmu.mp3" },
-    { title: "Terima kasih", artis:"Hal", src: "assets/audio/HAL - terima kasih (Official Lyric Video) - halstage (youtube).mp3" },
-    { title: "I Wanna Be Yours", artis:"Arctic Monkeys", src: "assets/audio/I Wanna Be Yours - Arctic Monkeys (youtube).mp3" },
-    { title: "Perfect", artis:"Ed Sheran", src: "assets/audio/spotifydown.com - Perfect.mp3" },
-    { title: "Penjaga Hati", artis:"Nadhfi Basalamah", src: "assets/audio/spotifydown.com - penjaga hati.mp3" },
-    { title: "Spring Snow", artis:"10cm", src: "assets/audio/10cm – Spring Snow (봄눈) [Lovely Runner OST Part 8] [Rom_Eng Lyric] - ElyDha Subs (youtube).mp3" },
-    { title: "I Love You So", artis:"The Walters", src: "assets/audio/spotifydown.com - I Love You So.mp3" },
-    { title: "Aku yang jatuh cinta", artis:"Dudy Oris", src: "assets/audio/SpotiDownloader.com - Aku Yang Jatuh Cinta - Dudy Oris (1).mp3" },
+    { title: "Soulmate", artis:"Kahitna", src: "assets/audio/SpotifyMate.com - Soulmate - Kahitna.mp3" },
+    { title: "Always", artis:"Daniel Caesar", src: "assets/audio/SpotifyMate.com - Always - Daniel Caesar.mp3" },
+    { title: "Oh Love", artis:"Delaney Bailey", src: "assets/audio/SpotifyMate.com - Oh Love - Delaney Bailey.mp3" },
+    { title: "One Only", artis:"Pamungkas", src: "assets/audio/SpotifyMate.com - One Only - Pamungkas.mp3" },
+    { title: "Bunga Abadi", artis:"Rio Clappy", src: "assets/audio/SpotifyMate.com - Bunga Abadi - Rio Clappy.mp3" },
+    { title: "I Love You", artis:"Celine Dion", src: "assets/audio/SpotifyMate.com - I Love You - Céline Dion.mp3" },
+    { title: "Jatuh Hati", artis:"Raisa", src: "assets/audio/SpotifyMate.com - Jatuh Hati - Raisa.mp3" },
+    { title: "My Everything", artis:"Ariana Grande", src: "assets/audio/SpotifyMate.com - My Everything - Ariana Grande.mp3" },
 ];
 
 const laguPlayer = document.getElementById("laguPlayer");
