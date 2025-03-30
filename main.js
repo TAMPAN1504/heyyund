@@ -67,6 +67,8 @@ document.querySelector(".readmeMsg").addEventListener("click", () =>{
     }
     });
 
+
+
 // Scrapbook Function
 // References to DOM Elements
 const prevBtn = document.querySelector("#prev-btn");
@@ -290,3 +292,19 @@ document.addEventListener("DOMContentLoaded", function () {
         isAudioPlaying = !isAudioPlaying; // Toggle status
     };
 });
+
+document.querySelector(".readmeItem2").addEventListener("click", () =>{
+    document.querySelector("#paperSfx").load();
+    document.querySelector("#paperSfx").play();
+    document.querySelector(".readmeMsg2").style.display = "flex";
+    fadeOutAudio();
+});
+
+// fungsi ketika paper diklik di luar area gambar;
+document.querySelector(".readmeMsg2").addEventListener("click", () =>{
+    if (event.target !== document.querySelector(".paper-bg")) {
+        document.querySelector("#paperSfx").load();
+        document.querySelector("#paperSfx").play();
+        document.querySelector(".readmeMsg2").style.display = "none";
+    }
+    });

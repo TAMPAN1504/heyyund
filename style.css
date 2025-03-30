@@ -502,13 +502,24 @@ nav .logo a {
     width: 90px;
 }
 
-.readme .readmeItem {
+.readmeItem {
     width: 100%;
     font-size: 0.6rem;
     background-color: var(--main-color);
     padding: 3px;
     border-radius: 10px;
     border: 2px solid black;
+    cursor: pointer;
+}
+.readmeItem2 {
+    width: 100%;
+    font-size: 0.6rem;
+    background-color: var(--main-color);
+    padding: 3px;
+    border-radius: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+
 }
 
 .readmeMsg {
@@ -537,6 +548,39 @@ nav .logo a {
 }
 
 .readmeMsg .paper-bg p {
+    font-family: Reenie Beanie, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+
+.readmeMsg2 {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.readmeMsg2 .paper-bg {
+    background-image: url(assets/image/paper-texture.png);
+    height: 50%;
+    width: 80%;
+    position: fixed;
+    background-size: cover;
+    color: var(--dark-color);
+    padding: 10px;
+    text-align: start;
+    border-radius: 5px;
+}
+
+.readmeMsg2 .paper-bg p {
     font-family: Reenie Beanie, sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -755,3 +799,82 @@ i {
     transform: scale(0.9);
 }
 
+.gameWeb{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(flappy-bird/flappybirdbg.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .gameWeb .container{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid var(--main-color);
+    gap: 20px;
+    color: var(--dark-color);
+    padding: 25px;
+    border-radius: 10px;
+
+  }
+
+  .gameWeb .game-container{
+    display: grid;
+    
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    
+  }
+  .gameWeb .game-container img {
+    width: 150px;
+    aspect-ratio: 6/4;
+    object-position: 50% 10%;
+    object-fit: cover;
+    filter: grayscale(1);
+    border-radius: 8px;
+    transition: transform 0.3s, filter 0.3s
+  }
+
+  .gameWeb .game-container img:hover{
+    transform: scale(1.10);
+    filter: grayscale(0);
+  }
+  .gameWeb .atribut{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+  }
+  .gameWeb .atribut img{
+    width: 50px;
+  }
+
+  .coming-soon{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+  }
+
+  footer{
+    background-color: rgb(6, 3, 23);
+    width: 100%;
+    height: 10vh;
+    color: white;
+    font-family: Montserrat;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
