@@ -1,13 +1,13 @@
-:root{
+:root {
     --main-color: #ffadda;
     --demo-color: #e6e6fa;
     --sec-color: #ffc4e4;
     --dark-color: #9b4373;
 }
 
- html{
-  scroll-behavior: smooth;
-} 
+html {
+    scroll-behavior: smooth;
+}
 
 @font-face {
     font-family: Reenie Beanie;
@@ -17,12 +17,13 @@
     font-display: swap;
 }
 
-*{
-    margin: 0; padding: 0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     color: black;
     display: flex;
@@ -31,8 +32,8 @@ body{
     align-items: center;
 }
 
-header{
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)) ,url(assets/image/header.png);
+header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(assets/image/header.png);
     background-size: cover;
     background-repeat: no-repeat;
     filter: grayscale(1);
@@ -64,20 +65,26 @@ header{
 }
 
 @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .marquee-content span {
     display: inline-block;
-    padding-right: 30px; /* Jarak antar teks */
+    padding-right: 30px;
+    /* Jarak antar teks */
 }
 
-nav{
+nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -85,24 +92,24 @@ nav{
     padding: 8px;
 }
 
-nav ul{
+nav ul {
     display: flex;
     gap: 10px;
     list-style-type: none;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
     color: var(--dark-color);
 }
 
-nav .logo a{
+nav .logo a {
     text-decoration: none;
     color: black;
     font-size: 24px;
 }
 
-.home{
+.home {
     background-image: url(assets/image/589de158-8f51-4b92-9be9-82fc7c0c8584.jpeg);
     background-size: cover;
     width: 100vw;
@@ -111,15 +118,15 @@ nav .logo a{
     align-items: center;
 }
 
-.home .container{
+.home .container {
     width: 90vw;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    
+
 }
 
-.aboutYou-card{
+.aboutYou-card {
     background-color: white;
     width: 100%;
     margin-top: 20px;
@@ -131,20 +138,21 @@ nav .logo a{
     align-items: center;
 }
 
-.aboutYou-card img{
+.aboutYou-card img {
     width: 95%;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.home .container .header{
+.home .container .header {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-evenly;
 }
-.home .container .header .imgWrapper{
+
+.home .container .header .imgWrapper {
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -152,12 +160,14 @@ nav .logo a{
     justify-content: center;
     border: 1px solid black;
 }
-.home .container .header img{
+
+.home .container .header img {
     width: 90px;
     border-radius: 50px;
     height: 90px;
 }
-.home .container .header .judul{
+
+.home .container .header .judul {
     color: var(--dark-color);
     font-size: 8px;
     padding: 5px;
@@ -170,7 +180,7 @@ nav .logo a{
     background-color: rgb(240, 240, 240);
 }
 
-.aboutYou-card .favItem{
+.aboutYou-card .favItem {
     display: flex;
     color: black;
     width: 90%;
@@ -178,7 +188,7 @@ nav .logo a{
     justify-content: space-around;
 }
 
-.aboutYou-card .favItem .words{
+.aboutYou-card .favItem .words {
     background-color: var(--main-color);
     padding: 5px;
     border-radius: 50px;
@@ -193,11 +203,11 @@ nav .logo a{
     text-align: center;
 }
 
-.aboutYou-card .favItem .words p{
+.aboutYou-card .favItem .words p {
     font-size: 9px;
 }
 
-.aboutYou-card .paragraph{
+.aboutYou-card .paragraph {
     color: black;
     width: 90%;
     text-align: center;
@@ -206,38 +216,41 @@ nav .logo a{
     line-height: 20px;
 }
 
-.aboutYou-card .footer{
+.aboutYou-card .footer {
     color: var(--dark-color);
-    font-family: 'Comic Sans MS','Gloria Hallelujah', 'Poppins', sans-serif;
+    font-family: 'Comic Sans MS', 'Gloria Hallelujah', 'Poppins', sans-serif;
     font-size: 10px;
     text-align: center;
 
 }
 
-.aboutYou-card .elementAbout{
+.aboutYou-card .elementAbout {
     width: 90%;
     display: flex;
     justify-content: space-around;
 }
-.aboutYou-card .elementJudul{
+
+.aboutYou-card .elementJudul {
     color: var(--dark-color);
     font-size: 12px;
     align-items: center;
     display: flex;
     font-family: 'Comic Sans MS', 'Reenie Beanie';
 }
-.aboutYou-card .elementJudul img{
+
+.aboutYou-card .elementJudul img {
     width: 60px;
     height: 60px;
 }
-.aboutYou-card .elementAbout img{
+
+.aboutYou-card .elementAbout img {
     width: 50px;
     height: 50px;
 }
 
 /* Section Gallery */
 
-.gallery{
+.gallery {
     height: 100vh;
     width: 100vw;
     background-image: url(assets/image/bg-section.jpeg);
@@ -245,7 +258,7 @@ nav .logo a{
     background-position: center;
 }
 
-.gallery .title{
+.gallery .title {
     background-color: white;
     color: var(--dark-color);
     margin-top: 1cm;
@@ -259,6 +272,7 @@ nav .logo a{
     border: 2px solid var(--main-color);
     white-space: nowrap;
 }
+
 .carousel-container {
     width: 80%;
     max-width: 600px;
@@ -266,7 +280,7 @@ nav .logo a{
 }
 
 
-.your-class div{
+.your-class div {
     height: 50vh;
 }
 
@@ -277,7 +291,8 @@ nav .logo a{
     margin-top: 100%;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0.5; /* Default opacity untuk gambar non-aktif */
+    opacity: 0.5;
+    /* Default opacity untuk gambar non-aktif */
     object-fit: cover;
 }
 
@@ -287,7 +302,8 @@ nav .logo a{
     opacity: 1;
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
     width: 40px;
@@ -295,7 +311,8 @@ nav .logo a{
     z-index: 10;
 }
 
-.slick-prev:hover, .slick-next:hover {
+.slick-prev:hover,
+.slick-next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -304,6 +321,7 @@ nav .logo a{
     .carousel-container {
         width: 90%;
     }
+
     .your-class img {
         width: 180px;
         height: 220px;
@@ -314,6 +332,7 @@ nav .logo a{
     .carousel-container {
         width: 100%;
     }
+
     .your-class img {
         width: 80px;
         height: 120px;
@@ -322,8 +341,10 @@ nav .logo a{
 
 .carousel-buttons {
     display: flex;
-    justify-content: center; /* Posisikan ke tengah */
-    margin-top: 10px; /* Beri jarak ke slide */
+    justify-content: center;
+    /* Posisikan ke tengah */
+    margin-top: 10px;
+    /* Beri jarak ke slide */
 }
 
 .carousel-buttons button {
@@ -333,7 +354,8 @@ nav .logo a{
     background-color: #333;
     color: white;
     cursor: pointer;
-    margin: 0 10px; /* Beri jarak antar tombol */
+    margin: 0 10px;
+    /* Beri jarak antar tombol */
     border-radius: 5px;
 }
 
@@ -343,7 +365,7 @@ nav .logo a{
 
 
 /* MUSIC FAV SECTION */
-.music-fav{
+.music-fav {
     background-image: url(assets/image/music-fav-bg.jpg);
     width: 100vw;
     display: flex;
@@ -351,7 +373,8 @@ nav .logo a{
     align-items: center;
     padding: 2cm;
 }
-.music-box{
+
+.music-box {
     color: black;
     display: flex;
     flex-direction: column;
@@ -367,23 +390,25 @@ nav .logo a{
     font-weight: 800;
     color: var(--dark-color);
 }
-.music-box .title{
+
+.music-box .title {
     display: flex;
     align-items: center;
     width: 350px;
     justify-content: center;
 }
-.music-box .title img{
+
+.music-box .title img {
     width: 90px;
 }
 
-.music-box .gallery{
+.music-box .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
 }
 
-.photo img{
+.photo img {
     width: 150px;
     aspect-ratio: 6/4;
     object-position: 50% 10%;
@@ -392,14 +417,15 @@ nav .logo a{
     border-radius: 8px;
     transition: transform 0.3s, filter 0.3s;
 }
-.photo img:hover{
+
+.photo img:hover {
     transform: scale(1.10);
     filter: grayscale(0);
 }
 
 
 /* MUSIC LIGHTBOX */
-.lightbox{
+.lightbox {
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to top, rgba(245, 40, 145, 1), rgba(255, 255, 255, 0.5));
@@ -415,23 +441,27 @@ nav .logo a{
     font-size: 2rem;
     left: 0;
 }
-.lightbox img{
+
+.lightbox img {
     width: 300px;
     aspect-ratio: 5/5;
     border-radius: 10px;
     object-fit: cover;
 }
+
 .lightbox .judul {
     width: 75%;
     line-height: 35px;
 }
-#progress{
+
+#progress {
     -webkit-appearance: none;
-    width: 100% ;
+    width: 100%;
     height: 4px;
     background-color: rgba(226, 226, 226, 0.611);
 }
-#progress::-webkit-slider-thumb{
+
+#progress::-webkit-slider-thumb {
     -webkit-appearance: none;
     background-color: white;
     width: 15px;
@@ -439,13 +469,14 @@ nav .logo a{
     border-radius: 100px;
 }
 
-.controls{
+.controls {
     display: flex;
     width: 70%;
     justify-content: space-around;
     align-items: center;
 }
-.controls .play{
+
+.controls .play {
     color: black;
     background-color: white;
     border-radius: 100px;
@@ -453,12 +484,12 @@ nav .logo a{
     padding: 40px;
     height: 40px;
     display: flex;
-    align-items: center ;
+    align-items: center;
     justify-content: center;
 }
 
 /* Readme */
-.readme{
+.readme {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -467,11 +498,11 @@ nav .logo a{
 
 }
 
-.readme img{
+.readme img {
     width: 90px;
 }
 
-.readme .readmeItem{
+.readme .readmeItem {
     width: 100%;
     font-size: 0.6rem;
     background-color: var(--main-color);
@@ -480,7 +511,7 @@ nav .logo a{
     border: 2px solid black;
 }
 
-.readmeMsg{
+.readmeMsg {
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
@@ -492,7 +523,8 @@ nav .logo a{
     justify-content: center;
     align-items: center;
 }
-.readmeMsg .paper-bg{
+
+.readmeMsg .paper-bg {
     background-image: url(assets/image/paper-texture.png);
     height: 50%;
     width: 80%;
@@ -504,7 +536,7 @@ nav .logo a{
     border-radius: 5px;
 }
 
-.readmeMsg .paper-bg p{
+.readmeMsg .paper-bg p {
     font-family: Reenie Beanie, sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -512,36 +544,36 @@ nav .logo a{
 
 }
 
-.scrapbook{
+.scrapbook {
     height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
-      font-family: sans-serif;
-      background-color: powderblue;
-  }
-  
-  /* Book */
-  .book {
+    font-family: sans-serif;
+    background-color: powderblue;
+}
+
+/* Book */
+.book {
     position: relative;
     width: 200px;
     height: 300px;
     transition: transform 0.5s;
-  }
-  
-  .paper {
+}
+
+.paper {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     perspective: 1500px;
-  }
-  
-  .front,
-  .back {
+}
+
+.front,
+.back {
     background-color: white;
     border-radius: 10px;
     position: absolute;
@@ -551,68 +583,175 @@ nav .logo a{
     left: 0;
     transform-origin: left;
     transition: transform 0.5s;
-  }
-  
-  .front {
+}
+
+.front {
     z-index: 1;
     backface-visibility: hidden;
     border-left: 3px solid powderblue;
-  }
-  
-  .back {
+}
+
+.back {
     z-index: 0;
-  }
-  
-  .front-content,
-  .back-content {
+}
+
+.front-content,
+.back-content {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .back-content {
+}
+
+.back-content {
     transform: rotateY(180deg)
-  }
-  
-  /* Paper flip effect */
-  .flipped .front,
-  .flipped .back {
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
     transform: rotateY(-180deg);
-  }
-  
-  /* Controller Buttons */
-  button {
+}
+
+/* Controller Buttons */
+button {
     border: none;
     background-color: transparent;
     cursor: pointer;
     margin: 10px;
     transition: transform 0.5s;
-  }
-  
-  button:focus {
+}
+
+button:focus {
     outline: none;
-  }
-  
-  button:hover i {
+}
+
+button:hover i {
     color: #636363;
-  }
-  
-  i {
+}
+
+i {
     font-size: 50px;
     color: gray;
-  }
-  
-  /* Paper stack order */
-  #p1 {
+}
+
+/* Paper stack order */
+#p1 {
     z-index: 3;
-  }
-  
-  #p2 {
+}
+
+#p2 {
     z-index: 2;
-  }
-  
-  #p3 {
+}
+
+#p3 {
     z-index: 1;
-  }
+}
+
+
+.birthday {
+    background: linear-gradient(to bottom, #ffadda, white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.birthday-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.countdown-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: #ffadda;
+    border-radius: 10px;
+    color: #9b4373;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-time h3 {
+    margin: 5px 0;
+}
+
+.birthday .title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #9b4373;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #ff5c8a, #ffadda);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+/* PARTIKEL */
+.love-container {
+            position: absolute;
+            width: 100%;
+            height: 100%; /* Full tinggi section */
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .love {
+            position: absolute;
+            color: #ff5c8a;
+
+            font-size: 20px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateX(0) translateY(-10%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(30px) translateY(50vh) rotate(20deg);
+            }
+            100% {
+                transform: translateX(-30px) translateY(100vh) rotate(-20deg);
+                opacity: 1;
+            }
+        }
+        
+/* Tombol Speaker */
+.audio-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.audio-toggle img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.audio-toggle img:active {
+    transform: scale(0.9);
+}
+

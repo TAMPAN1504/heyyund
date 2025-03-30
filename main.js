@@ -1,3 +1,19 @@
+// Simpan posisi scroll sebelum refresh
+window.addEventListener("beforeunload", () => {
+    localStorage.setItem("scrollPosition", window.scrollY);
+});
+
+// Kembalikan posisi scroll setelah refresh
+window.addEventListener("load", () => {
+    const scrollPosition = localStorage.getItem("scrollPosition");
+    if (scrollPosition) {
+        window.scrollTo(0, scrollPosition);
+    }
+});
+
+
+
+
 //Function Gallery Image
 $(document).ready(function(){
     $('.your-class').slick({
@@ -153,3 +169,124 @@ function goPrevPage() {
         currentLocation--;
     }
 }
+
+//Birthday Date Function
+function updateCountdown() {
+    const targetDate = new Date("June 4, 2025 00:00:00").getTime();
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("hari").innerText = days;
+        document.getElementById("jam").innerText = hours;
+        document.getElementById("menit").innerText = minutes;
+        document.getElementById("detik").innerText = seconds;
+    } else {
+        document.querySelector(".birthday-container").innerHTML = "<h2>Waktunya tiba! 🎉</h2>";
+    }
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Fungsi untuk membuat partikel love jatuh
+function createLove() {
+    const love = document.createElement("div");
+    love.classList.add("love");
+    love.innerHTML = "❤️";
+
+    const birthdaySection = document.querySelector(".birthday");
+    const loveContainer = birthdaySection.querySelector(".love-container");
+
+    // Posisi awal acak di dalam section
+    const rect = birthdaySection.getBoundingClientRect();
+    love.style.left = `${Math.random() * rect.width}px`;
+    love.style.top = `-20px`;
+
+    // Ukuran acak biar lebih natural
+    let size = Math.random() * 20 + 10;
+    love.style.fontSize = `${size}px`;
+
+    // Durasi lebih lama supaya jatuhnya pelan
+    let duration = Math.random() * 5 + 10; 
+    love.style.animationDuration = `${duration}s`;
+
+    loveContainer.appendChild(love);
+
+    setTimeout(() => {
+        love.remove();
+    }, duration * 1000);
+}
+
+// Jalankan efek love setiap 500ms (lebih lambat biar efeknya lebih natural)
+setInterval(createLove, 500);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("birthdaySong");
+    let fadeInterval = null;
+    let isAudioPlaying = false; // Tambahkan variabel ini
+
+    // Fungsi untuk fade in audio
+    function fadeInAudio() {
+        clearInterval(fadeInterval);
+        audio.play();
+        fadeInterval = setInterval(() => {
+            if (audio.volume < 0.5) {
+                audio.volume += 0.01;
+            } else {
+                clearInterval(fadeInterval);
+            }
+        }, 50);
+    }
+
+    // Fungsi untuk fade out audio
+    function fadeOutAudio() {
+        clearInterval(fadeInterval);
+        fadeInterval = setInterval(() => {
+            if (audio.volume > 0.01) {
+                audio.volume -= 0.01;
+            } else {
+                audio.volume = 0;
+                audio.pause();
+                clearInterval(fadeInterval);
+            }
+        }, 10);
+    }
+
+    // Intersection Observer untuk deteksi scroll
+    const birthdaySection = document.querySelector(".birthday");
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    fadeInAudio(); // Jika masuk ke section, mulai fade in
+                } else {
+                    fadeOutAudio(); // Jika keluar, mulai fade out
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    observer.observe(birthdaySection);
+
+    // Fungsi Toggle Audio
+    window.toggleAudio = function () {
+        let speakerIcon = document.getElementById("speakerIcon");
+
+        if (isAudioPlaying) {
+            audio.pause();
+            speakerIcon.src = "assets/image/mute.png"; // Ubah ikon ke OFF
+        } else {
+            audio.play();
+            speakerIcon.src = "assets/image/speaker-filled-audio-tool.png"; // Ubah ikon ke ON
+        }
+
+        isAudioPlaying = !isAudioPlaying; // Toggle status
+    };
+});
