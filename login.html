@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Dulu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffadda;
+        }
+        .container {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 350px;
+            border: 3px solid #ffadda;
+        }
+        .container img{
+            width: 100px;
+            height: 90px;
+        }
+        h2 {
+            color: #9b4373;
+            margin-bottom: 10px;
+        }
+        .password-display {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #ffadda;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            color: #9b4373;
+        }
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+        }
+        .key {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            background-color: #ffadda;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+        }
+        .key:hover {
+            background-color: #e69bb2;
+        }
+        .key.zero {
+            grid-column: span 3;
+        }
+        .warning {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 173, 218, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .loading-screen.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .loading-text {
+            font-size: 18px;
+            color: #9b4373;
+            font-weight: bold;
+            animation: slideDown 1.5s ease-in-out forwards;
+        }
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHM0eHR4MDFlaGYycHZqazB5MHlsc3N0a3gybTU1Y3pzeWFjZWpydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vVegyymxA90fkY8jkE/giphy.gif" alt="">
+        <h2 style="white-space: nowrap;">🔒 Enter your password 🔒</h2>
+        <input type="password" id="passwordInput" class="password-display" readonly>
+        <div class="keypad">
+            <button class="key" onclick="enterNumber(1)">1</button>
+            <button class="key" onclick="enterNumber(2)">2</button>
+            <button class="key" onclick="enterNumber(3)">3</button>
+            <button class="key" onclick="enterNumber(4)">4</button>
+            <button class="key" onclick="enterNumber(5)">5</button>
+            <button class="key" onclick="enterNumber(6)">6</button>
+            <button class="key" onclick="enterNumber(7)">7</button>
+            <button class="key" onclick="enterNumber(8)">8</button>
+            <button class="key" onclick="enterNumber(9)">9</button>
+            <button class="key zero" onclick="enterNumber(0)">0</button>
+        </div>
+        <p class="warning" id="warningText">Anda bukan orang yang kami maksud</p>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <p class="loading-text" id="loadingText">Memverifikasikan diri mu, tunggu sebentar...</p>
+    </div>
+
+    <script>
+        let password = "";
+        const correctPassword = "04062007"; // Ganti dengan password yang diinginkan
+        const passwordInput = document.getElementById("passwordInput");
+        const warningText = document.getElementById("warningText");
+        const loadingScreen = document.getElementById("loadingScreen");
+        const loadingText = document.getElementById("loadingText");
+
+        function enterNumber(num) {
+            if (password.length < 8) { // Maksimal 4 digit
+                password += num;
+                passwordInput.value = "*".repeat(password.length);
+            }
+            if (password.length === 8) {
+                checkPassword();
+            }
+        }
+
+        function checkPassword() {
+            if (password === correctPassword) {
+                showLoadingScreen();
+            } else {
+                warningText.style.display = "block"; // Munculkan warning
+                setTimeout(() => {
+                    warningText.style.display = "none";
+                    password = "";
+                    passwordInput.value = "";
+                }, 2000);
+            }
+        }
+
+        function showLoadingScreen() {
+            loadingScreen.classList.add("active"); // Tampilkan layar loading
+
+            setTimeout(() => {
+                loadingText.textContent = "Oke, informasi kamu valid."; // Ganti teks
+                setTimeout(() => {
+                    window.location.href = "main.html"; // Redirect setelah animasi selesai
+                }, 2000);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

@@ -3,211 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Ulang Tahun</title>
+    <title>Kuis Wawasan Kebangsaan</title>
     <style>
-        * {
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #007bff, #6fb3ff);
+            color: #fff;
+            text-align: center;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
-
-        body {
-            background: linear-gradient(to bottom, #ffadda, white);
-            text-align: center;
-        }
-
-        /* HEADER STYLISH */
-        .title {
-            font-size: 40px;
-            font-weight: bold;
-            color: #9b4373;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(to right, #ff5c8a, #ffadda);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .birthday {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Full layar */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            overflow: hidden; /* Supaya partikel nggak keluar */
-        }
-
-        .birthday-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .quiz-container {
             background: white;
+            color: #333;
+            max-width: 600px;
+            margin: 50px auto;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-
-        .countdown-time {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            height: 80px;
-            background: #ffadda;
-            border-radius: 10px;
-            color: #9b4373;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        h1 {
+            color: #007bff;
         }
-
-        .countdown-time h3 {
+        .question {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            background: #f1f1f1;
             margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
         }
-
-        /* ANIMASI PARTIKEL LOVE */
-        .love-container {
-            position: absolute;
-            width: 100%;
-            height: 100vh; /* Full tinggi section */
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 5;
+        .options li:hover {
+            background: #007bff;
+            color: white;
         }
-
-        .love {
-            position: absolute;
-            color: #ff5c8a;
+        #next {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            display: none;
+        }
+        #next:hover {
+            background: #0056b3;
+        }
+        #result {
             font-size: 20px;
-            opacity: 0.8;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-10%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(110vh); /* Love turun full sampai hilang */
-                opacity: 1;
-            }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 30px;
-            }
-
-            .birthday-container {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .countdown-time {
-                width: 60px;
-                height: 60px;
-            }
-
-            .countdown-time h3 {
-                font-size: 14px;
-            }
+            margin-top: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
-    <section class="birthday">
-        <div class="love-container"></div>
-
-        <h1 class="title">Your Birthday</h1>
-
-        <div class="birthday-container">
-            <div class="countdown-time">
-                <h3 id="hari">0</h3>
-                <h3>Hari</h3>
-            </div>
-            <div class="countdown-time">
-                <h3 id="jam">0</h3>
-                <h3>Jam</h3>
-            </div>
-            <div class="countdown-time">
-                <h3 id="menit">0</h3>
-                <h3>Menit</h3>
-            </div>
-            <div class="countdown-time">
-                <h3 id="detik">0</h3>
-                <h3>Detik</h3>
-            </div>
-        </div>
-    </section>
+    <div class="quiz-container">
+        <h1>Kuis Wawasan Kebangsaan</h1>
+        <div id="quiz"></div>
+        <button id="next">Next</button>
+        <div id="result"></div>
+    </div>
 
     <script>
-        function updateCountdown() {
-            const targetDate = new Date("June 4, 2025 00:00:00").getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
+        const questions = [
+            { question: "Siapakah Proklamator Kemerdekaan Indonesia?", options: ["Soekarno & Hatta", "Soekarno & Sudirman", "Hatta & Suharto", "Sudirman & Soeharto"], answer: "Soekarno & Hatta" },
+            { question: "Kapan Hari Kemerdekaan Indonesia?", options: ["17 Agustus 1945", "20 Mei 1908", "1 Juni 1945", "10 November 1945"], answer: "17 Agustus 1945" },
+            { question: "Apa semboyan negara Indonesia?", options: ["Bersatu Kita Teguh", "Bhineka Tunggal Ika", "Merdeka atau Mati", "Indonesia Jaya"], answer: "Bhineka Tunggal Ika" },
+            { question: "Apa warna bendera Indonesia?", options: ["Merah & Putih", "Merah & Kuning", "Biru & Putih", "Hijau & Kuning"], answer: "Merah & Putih" },
+            { question: "Siapa Presiden pertama Indonesia?", options: ["Soeharto", "Habibie", "Soekarno", "Hatta"], answer: "Soekarno" },
+            { question: "Apa lagu kebangsaan Indonesia?", options: ["Indonesia Raya", "Garuda Pancasila", "Hari Merdeka", "Tanah Airku"], answer: "Indonesia Raya" },
+            { question: "Apa dasar negara Indonesia?", options: ["Pancasila", "UUD 1945", "Demokrasi", "Trisakti"], answer: "Pancasila" },
+            { question: "Berapa sila dalam Pancasila?", options: ["3", "4", "5", "6"], answer: "5" },
+            { question: "Apa ibu kota Indonesia?", options: ["Jakarta", "Bandung", "Surabaya", "Medan"], answer: "Jakarta" },
+            { question: "Siapa pahlawan nasional yang terkenal dengan pidato 'Ganyang Malaysia'?", options: ["Soeharto", "Soekarno", "Hatta", "Sudirman"], answer: "Soekarno" }
+        ];
 
-            if (difference > 0) {
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = new Array(questions.length).fill(null);
 
-                document.getElementById("hari").innerText = days;
-                document.getElementById("jam").innerText = hours;
-                document.getElementById("menit").innerText = minutes;
-                document.getElementById("detik").innerText = seconds;
-            } else {
-                document.querySelector(".birthday-container").innerHTML = "<h2>Waktunya tiba! 🎉</h2>";
+        const quizContainer = document.getElementById("quiz");
+        const nextButton = document.getElementById("next");
+        const resultContainer = document.getElementById("result");
+
+        function loadQuestion(index) {
+            let q = questions[index];
+            quizContainer.innerHTML = `
+                <div class="question">${index + 1}. ${q.question}</div>
+                <ul class="options">
+                    ${q.options.map(option => `<li onclick="selectAnswer(${index}, this)">${option}</li>`).join('')}
+                </ul>
+            `;
+            nextButton.style.display = "none";
+        }
+
+        function selectAnswer(index, element) {
+            userAnswers[index] = element.innerText;
+
+            // Reset warna semua opsi di soal ini
+            const options = element.parentElement.querySelectorAll("li");
+            options.forEach(option => option.style.background = "#f1f1f1");
+
+            // Tandai jawaban yang dipilih
+            element.style.background = "#007bff";
+            element.style.color = "white";
+
+            // Munculkan tombol Next
+            nextButton.style.display = "block";
+        }
+
+        nextButton.addEventListener("click", () => {
+            if (userAnswers[currentQuestionIndex] === questions[currentQuestionIndex].answer) {
+                score += 10;
             }
-        }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                quizContainer.innerHTML = "";
+                nextButton.style.display = "none";
+                resultContainer.innerHTML = `Skor Anda: ${score}/100`;
+            }
+        });
 
-        // Fungsi untuk membuat partikel love hanya di dalam section .birthday
-        function createLove() {
-            const birthdaySection = document.querySelector(".birthday");
-            const loveContainer = document.querySelector(".love-container");
-
-            const love = document.createElement("div");
-            love.classList.add("love");
-            love.innerHTML = "❤";
-
-            // Batas area partikel tetap dalam section .birthday
-            const sectionRect = birthdaySection.getBoundingClientRect();
-            const leftPosition = Math.random() * sectionRect.width;
-
-            love.style.left = `${leftPosition}px`;
-
-            // Ukuran dan kecepatan random
-            const size = Math.random() * 20 + 10;
-            love.style.fontSize = `${size}px`;
-
-            const duration = Math.random() * 3 + 2;
-            love.style.animationDuration = `${duration}s`;
-
-            loveContainer.appendChild(love);
-
-            // Hapus partikel setelah jatuh
-            setTimeout(() => {
-                love.remove();
-            }, duration * 1000);
-        }
-
-        setInterval(createLove, 300); // Loop infinity, membuat partikel setiap 300ms
+        // Load soal pertama
+        loadQuestion(currentQuestionIndex);
     </script>
-
 </body>
 </html>
